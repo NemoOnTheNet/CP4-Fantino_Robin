@@ -1,5 +1,5 @@
 // Load the express module to create a web application
-
+const path = require("path");
 const express = require("express");
 
 const app = express();
@@ -53,7 +53,7 @@ app.use(
 // Uncomment one or more of these options depending on the format of the data sent by your client:
 
 app.use(express.json());
-app.use(express.static("./public"));
+express.json();
 // app.use(express.urlencoded());
 // app.use(express.text());
 // app.use(express.raw());
@@ -74,7 +74,7 @@ app.use(express.static("./public"));
 // const cookieParser = require("cookie-parser");
 // app.use(cookieParser());
 
-// Once `cookie-parser` is set up, you can read and set cookies in your routes.
+// Once `cookie-parser` is set up you can read and set cookies in your routes.
 // For example, to set a cookie named "username" with the value "john":
 // res.cookie("username", "john");
 
@@ -88,6 +88,8 @@ const router = require("./router");
 
 // Mount the API routes under the "/api" endpoint
 app.use("/api", router);
+app.use(express.static("./public"));
+app.use("public", express.static(path.join(__dirname, "/public")));
 
 /* ************************************************************************* */
 
