@@ -1,0 +1,153 @@
+.homepage {
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+}
+.words {
+  font-family: "Courier New", Courier, monospace;
+  text-align: center;
+  width: 5em;
+  height: 2em;
+  margin: 0 1em;
+  background-color: cadetblue;
+}
+.Word {
+  position: relative;
+}
+.homepage_div {
+  background-color: beige;
+}
+.homepage_img {
+  width: 100%;
+  height: auto;
+}
+.homepage_section {
+  display: flex;
+  flex-direction: column;
+}
+.homepage_header {
+  display: flex;
+}
+.boat {
+  position: absolute;
+  z-index: 20;
+  top: 20%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  background-color: none;
+  border: none;
+  background-color: rgba(0, 238, 255, 0.15);
+}
+.homepage_info {
+  width: 90vw;
+  margin-left: 2em;
+}
+.move1 {
+  animation: moveAnimation1 3s ease-in-out forwards;
+}
+.move2 {
+  animation: moveAnimation2 3s ease-in-out forwards;
+}
+.move3 {
+  animation: moveAnimation3 3s ease-in-out forwards;
+}
+
+@keyframes moveAnimation1 {
+  to {
+    top: 25%;
+    left: 48%;
+  }
+}
+@keyframes moveAnimation2 {
+  0% {
+    top: 25%;
+    left: 48%;
+  }
+  100% {
+    top: 27%;
+    left: 55%;
+  }
+}
+@keyframes moveAnimation3 {
+  0% {
+    top: 27%;
+    left: 55%;
+  }
+  100% {
+    top: 37%;
+    left: 58%;
+  }
+}
+.France {
+  position: absolute;
+  top: 24%;
+  left: 45%;
+  background-color: yellow;
+  z-index: 20;
+  transform: translate(-50%, -50%);
+}
+.Italie {
+  position: absolute;
+  top: 28%;
+  left: 48%;
+  background-color: yellow;
+  z-index: 20;
+  transform: translate(-50%, -50%);
+}
+.Turquie {
+  position: absolute;
+  top: 30%;
+  left: 55%;
+  background-color: yellow;
+  z-index: 20;
+  transform: translate(-50%, -50%);
+}
+.Moyen-Orient {
+  position: absolute;
+  top: 40%;
+  left: 58%;
+  background-color: yellow;
+  z-index: 20;
+  transform: translate(-50%, -50%);
+}
+.Pays-Bas {
+  position: absolute;
+  top: 20%;
+  left: 47%;
+  background-color: yellow;
+  z-index: 20;
+  transform: translate(-50%, -50%);
+}
+.Malacca {
+  position: absolute;
+  top: 50%;
+  left: 76%;
+  background-color: yellow;
+  z-index: 20;
+  transform: translate(-50%, -50%);
+}
+.Chine {
+  position: absolute;
+  top: 32%;
+  left: 73%;
+  background-color: yellow;
+  z-index: 20;
+  transform: translate(-50%, -50%);
+}
+
+.button_phone {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .Word {
+    display: none;
+  }
+
+  .button_phone {
+    display: flex;
+    width: 30%;
+    margin: 1em;
+    justify-self: center;
+  }
+}
