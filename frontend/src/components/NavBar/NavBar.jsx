@@ -14,7 +14,7 @@ function NavBar() {
         />
         <h1>Ethymologia</h1>
       </div>
-      <Link to="/register">
+      <Link to="/">
         <img
           className="user-img"
           src="src/assets/icone-user.svg"

@@ -1,29 +1,47 @@
 .homepage {
   height: 95vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
 }
-
-.testSectin {
+.words {
+  font-family: "Courier New", Courier, monospace;
+  text-align: center;
+  width: 5em;
+  height: 2em;
+  margin: 0 1em;
+  background-color: cadetblue;
+}
+.Word {
   position: relative;
 }
-
+.homepage_div {
+  background-color: beige;
+}
 .homepage_img {
   width: 100%;
   height: auto;
 }
-
+.homepage_section {
+  display: flex;
+  flex-direction: column;
+}
+.homepage_header {
+  display: flex;
+}
 .boat {
   position: absolute;
   z-index: 20;
   top: 20%;
   left: 45%;
-  background-image: url("../../assets/boat.png");
   transform: translate(-50%, -50%);
-  height: 50px;
-  width: 50px;
+  background-color: none;
+  border: none;
+  background-color: rgba(0, 238, 255, 0.15);
 }
-
+.homepage_info {
+  width: 90vw;
+  margin-left: 2em;
+}
 .move1 {
   animation: moveAnimation1 3s ease-in-out forwards;
 }
@@ -100,7 +118,7 @@
   z-index: 20;
   transform: translate(-50%, -50%);
 }
-.Malaca {
+.Malacca {
   position: absolute;
   top: 50%;
   left: 76%;
@@ -115,4 +133,21 @@
   background-color: yellow;
   z-index: 20;
   transform: translate(-50%, -50%);
+}
+
+.button_phone {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .Word {
+    display: none;
+  }
+
+  .button_phone {
+    display: flex;
+    width: 30%;
+    margin: 1em;
+    justify-self: center;
+  }
 }

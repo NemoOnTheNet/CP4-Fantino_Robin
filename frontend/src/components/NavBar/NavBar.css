@@ -1,17 +1,15 @@
 .navBar {
   display: flex;
   align-items: center;
-  background-color: beige;
+  background-color: blanchedalmond;
   height: 5vh;
   border-bottom: 1px solid lightgrey;
   justify-content: space-between;
 }
-
 .navbar-div {
   display: flex;
   align-items: center;
 }
-
 .navBar_img {
   height: 2em;
 }

@@ -1,22 +1,25 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 // eslint-disable-next-line no-unused-vars
 import PropTypes, { shape } from "prop-types";
 import "./Word.css";
 
 function Word({ handleClick, words }) {
   return (
-    <section className="testSectin">
+    <section className="Word">
       <img
         src={`${
           import.meta.env.VITE_BACKEND_URL
         }/assets/images/carte-monde.jpg`}
         alt=""
       />
-      <input
+      <button
         type="button"
         id="movingPoint"
         className="point boat"
         onClick={handleClick}
-      />
+      >
+        <img src="src/assets/boat.png" alt="" />
+      </button>
 
       {words &&
         words.map((word) => (

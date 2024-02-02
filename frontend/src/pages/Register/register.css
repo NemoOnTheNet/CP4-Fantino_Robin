@@ -27,3 +27,24 @@
   width: 20%;
   background-color: antiquewhite;
 }
+
+@media screen and (max-width: 1024px) {
+  .formInscription {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 90vh;
+    gap: 2em;
+    background-image: url("../../assets/bibliotheque-bnf-richelieu-salle-ovale.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .formInscription__label {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    background-color: antiquewhite;
+  }
+}
