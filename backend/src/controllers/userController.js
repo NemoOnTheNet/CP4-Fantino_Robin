@@ -68,17 +68,23 @@ const readByTeam = async (req, res, next) => {
 
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
-  // Extract the item data from the request body
-  const item = req.body;
+  const myUser = req.body.data;
+  const { hashedPassword } = req.body;
 
   try {
-    // Insert the item into the database
-    const insertId = await tables.item.create(item);
-
-    // Respond with HTTP 201 (Created) and the ID of the newly inserted item
-    res.status(201).json({ insertId });
+    const user = await tables.user.create(myUser, hashedPassword);
+    res.json(user);
   } catch (err) {
-    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
+const addbis = async (req, res, next) => {
+  const myUser = req.body;
+  try {
+    const user = await tables.user.createbis(myUser);
+    res.json(user);
+  } catch (err) {
     next(err);
   }
 };
@@ -94,5 +100,6 @@ module.exports = {
   readByTeam,
   // edit,
   add,
+  addbis,
   // destroy,
 };

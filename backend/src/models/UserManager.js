@@ -1,25 +1,33 @@
 const AbstractManager = require("./AbstractManager");
 
-class wordManager extends AbstractManager {
+class UserManager extends AbstractManager {
   constructor() {
     // Call the constructor of the parent class (AbstractManager)
     // and pass the table name "item" as configuration
-    super({ table: "word" });
+    super({ table: "user" });
   }
 
   // The C of CRUD - Create operation
 
-  async create(item) {
+  async create(myUser) {
     // Execute the SQL INSERT query to add a new item to the "item" table
     const [result] = await this.database.query(
-      `insert into ${this.table} (title) values (?)`,
-      [item.title]
+      `INSERT INTO ${this.table} (Firstname, lastname,email, password) VALUES (?,?,?,?)`,
+      [myUser.Firstname, myUser.lastname, myUser.email, myUser.hashedPassword]
     );
-
     // Return the ID of the newly inserted item
-    return result.insertId;
+    return result;
   }
 
+  async createbis(myUser) {
+    // Execute the SQL INSERT query to add a new item to the "item" table
+    const [result] = await this.database.query(
+      `INSERT INTO ${this.table} (Firstname, lastname, password) VALUES (?,?,?)`,
+      [myUser.Firstname, myUser.lastname, myUser.password]
+    );
+    // Return the ID of the newly inserted item
+    return result;
+  }
   // The Rs of CRUD - Read operations
 
   async read(id) {
@@ -41,23 +49,16 @@ class wordManager extends AbstractManager {
     return rows;
   }
 
-  async readById(id) {
+  async readByEmail(mail) {
+    // Execute the SQL SELECT query to retrieve a specific user by its email
     const [rows] = await this.database.query(
-      `SELECT * FROM ${this.table} WHERE id_origin_pays = ?`,
-      [id]
+      `select * from user where email = ?`,
+      [mail]
     );
-
-    return rows;
+    // Return the first row of the result, which represents the user
+    return rows[0];
   }
 
-  async readByTeamId(id) {
-    const [rows] = await this.database.query(
-      `SELECT word, Definition, id_origin_pays, order_list, country.name FROM word JOIN country on word.id_origin_pays=country.id WHERE team = ?`,
-      [id]
-    );
-
-    return rows;
-  }
   // The U of CRUD - Update operation
   // TODO: Implement the update operation to modify an existing item
 
@@ -73,4 +74,4 @@ class wordManager extends AbstractManager {
   // }
 }
 
-module.exports = wordManager;
+module.exports = UserManager;

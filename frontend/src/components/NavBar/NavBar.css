@@ -1,0 +1,21 @@
+.navBar {
+  display: flex;
+  align-items: center;
+  background-color: beige;
+  height: 5vh;
+  border-bottom: 1px solid lightgrey;
+  justify-content: space-between;
+}
+
+.navbar-div {
+  display: flex;
+  align-items: center;
+}
+
+.navBar_img {
+  height: 2em;
+}
+.user-img {
+  height: 2.5em;
+  margin-right: 0.5em;
+}

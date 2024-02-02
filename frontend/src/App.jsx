@@ -1,11 +1,16 @@
 import "./App.css";
 import { Outlet } from "react-router-dom";
+import NavBar from "./components/NavBar/NavBar";
+import { UserProvider } from "./components/userContext";
 
 function App() {
   return (
-    <div className="App">
-      <Outlet />
-    </div>
+    <UserProvider>
+      <div className="App">
+        <NavBar />
+        <Outlet />
+      </div>
+    </UserProvider>
   );
 }
 

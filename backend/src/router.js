@@ -10,6 +10,9 @@ const router = express.Router();
 const itemControllers = require("./controllers/itemControllers");
 const wordControllers = require("./controllers/wordControllers");
 const CountryControlles = require("./controllers/countryControllers");
+const UserController = require("./controllers/userController");
+const authControllers = require("./controllers/authControllers");
+const { hashPassword } = require("./middleware/hashpassword");
 
 // Route to get a list of items
 router.get("/items", itemControllers.browse);
@@ -20,9 +23,14 @@ router.get("/country", CountryControlles.browse);
 router.get("/items/:id", itemControllers.read);
 router.get("/word/:id", wordControllers.readBycountryId);
 router.get("/country/:name", CountryControlles.readByName);
+router.get("/word/team/:id", wordControllers.readByTeam);
 
 // Route to add a new item
 router.post("/items", itemControllers.add);
+router.post("/adduser", hashPassword, UserController.add);
+router.post("/userplus", UserController.addbis);
+
+router.post("/login", authControllers.login);
 
 /* ************************************************************************* */
 
